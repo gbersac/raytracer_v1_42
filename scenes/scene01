@@ -24,24 +24,27 @@
 
 sphere
 	- name: sphere vert
-	- origin: -800,0,4000
-	- rotation: 0,0,0
-	- rayon: 200
+	- origin: -20,0,200
+	- rayon: 10
 	- color: 65280
 
 sphere
 	- name: sphere bleu
-	- origin: 600,0,4000
-	- rotation: 0,0,0
-	- rayon: 200
+	- origin: 20,0,200
+	- rayon: 10
 	- color: 255
 
 sphere
 	- name: sphere rouge
-	- origin: 0,0,4000
-	- rotation: 0,0,0
-	- rayon: 500
+	- origin: -20,0,100
+	- rayon: 10
 	- color: 16711680
+
+sphere
+	- name: sphere blanche
+	- origin: 20,0,100
+	- rayon: 10
+	- color: 16777215
 
 light
 	- name: main light

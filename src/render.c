@@ -6,80 +6,35 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:41:44 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/12 21:34:26 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/12 22:46:43 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RTv1.h"
 #include "debug.h"
-//
-#include <stdio.h>
 
-static t_vector	ft_get_ray_vector(t_win *win, double x, double y)
-{
-	t_vector	ray;
-	t_vector	cam;
-
-	cam.x = win->vcam->orig->x;
-	cam.y = win->vcam->orig->y;
-	cam.z = win->vcam->orig->z;
-
-	ray.x = x - WIDTH / 2.0;
-	ray.y = y - HEIGHT / 2.0,
-	ray.z = 2 * WIDTH;
-	ray = ft_vec_sub(ray, cam);
-	ray = ft_vec_normalize(ray);
-	return (ray);
-}
-
-/*
-static t_vector	ft_get_ray_vector(t_win *win, double x, double y)
-{
-	t_vector	ray;
-	t_vector	vp_upleft;
-	t_vector	tmp;
-	double		x_ind;
-	double		y_ind;
-
-	x_ind = VP_WIDTH / (double)win->width;
-	y_ind = VP_HEIGHT / (double)win->height;
-	vp_upleft = ft_vec_product(*win->vcam->dir, VP_DIST);
-	vp_upleft = ft_vec_add(*win->vcam->orig, vp_upleft);
-	tmp = ft_vec_product(*win->vcam->up, VP_HEIGHT / 2.0);
-	vp_upleft = ft_vec_add(tmp, vp_upleft);
-	tmp = ft_vec_product(*win->vcam->right, VP_WIDTH / 2.0);
-	vp_upleft = ft_vec_sub(vp_upleft, tmp);
-//printf("x : %f, x_ind : %f, x * x_ind %f\n", x, x_ind, x * x_ind);
-	tmp = ft_vec_product(*win->vcam->right, x * x_ind);
-	ray = ft_vec_add(vp_upleft, tmp);
-	tmp = ft_vec_product(*win->vcam->up, y * y_ind);
-	ray = ft_vec_sub(vp_upleft, tmp);
-//printf("vec.x :%f\n", ray.x);
-//printf("vec.y :%f\n", ray.y);
-//printf("vec.z :%f\n", ray.z);
-	ray = ft_vec_normalize(ray);
-	return (ray);
-}
-*/
 static void		ft_raytracing(t_win *win)
 {
 	int			x;
 	int			y;
-	t_vector	ray;
 	int			color;
+	t_vector	ray;
 
-	x = 0;
-	while (x < win->width)
+	ray = ft_get_start_ray(win);
+	y = 0;
+	while (y < win->height)
 	{
-		y = 0;
-		while (y < win->height)
+		x = 0;
+		while (x < win->width)
 		{
-			ray = ft_get_ray_vector(win, x, y);
 			color = ft_get_color(win, &ray, win->vcam->orig);
 			ft_put_pix_to_img(win, x, y, color);
-			++y;
+			ray = ft_vec_add(ray, ft_vec_product(*win->vcam->right, X_RATIO));
+			++x;
 		}
-		++x;
+		ray = ft_vec_sub(ray, ft_vec_product(*win->vcam->right, (x * X_RATIO)));
+		ray = ft_vec_sub(ray, ft_vec_product(*win->vcam->up, Y_RATIO));
+		++y;
 	}
 }
 

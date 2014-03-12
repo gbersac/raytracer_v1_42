@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:42:15 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/12 21:34:45 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/12 23:04:51 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@
 # include "error.h"
 # include "vector.h"
 # define WIN_TITLE "RTv1"
-# define WIN_WIDTH 800
-# define WIN_HEIGHT 600
+# define WIN_WIDTH 1600
+# define WIN_HEIGHT 1200
 # define KEY_ESC 65307
 # define COLOR_BACKGROUND 0x000000
-# define WIDTH win->width
-# define HEIGHT win->height
-# define VP_DIST 1
-# define VP_HEIGHT 0.5
-# define VP_WIDTH 0.35
+# define VP_DIST 1.0
+# define VP_HEIGHT 0.35
+# define VP_WIDTH 0.46
+# define X_RATIO VP_WIDTH / (double)WIN_WIDTH
+# define Y_RATIO VP_HEIGHT / (double)WIN_HEIGHT
 
 typedef double(*t_inter)(t_vector *ray, t_vector *cam, void *data);
 
@@ -130,6 +130,7 @@ void		ft_quit(t_win *win);
 void		ft_free_win(t_win *win);
 int			ft_key_handle(int key, t_win *win);
 int			ft_put_image(t_win *win);
+t_vector	ft_get_start_ray(t_win *win);
 
 t_vcam		*ft_get_cam_vector(t_cam *cam);
 int			ft_get_color(t_win *win, t_vector *ray, t_vector *cam);

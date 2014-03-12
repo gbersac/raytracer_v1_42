@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:42:15 by rfrey             #+#    #+#             */
-/*   Updated: 2014/02/14 23:55:12 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/12 21:34:45 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,15 @@
 # include "error.h"
 # include "vector.h"
 # define WIN_TITLE "RTv1"
-# define WIN_WIDTH 1600
-# define WIN_HEIGTH 1200
+# define WIN_WIDTH 800
+# define WIN_HEIGHT 600
 # define KEY_ESC 65307
 # define COLOR_BACKGROUND 0x000000
 # define WIDTH win->width
-# define HEIGTH win->heigth
+# define HEIGHT win->height
+# define VP_DIST 1
+# define VP_HEIGHT 0.5
+# define VP_WIDTH 0.35
 
 typedef double(*t_inter)(t_vector *ray, t_vector *cam, void *data);
 
@@ -94,11 +97,19 @@ typedef struct		s_scene
 	t_prim			**primitives;
 }					t_scene;
 
+typedef struct		s_vcam
+{
+	t_vector		*orig;
+	t_vector		*dir;
+	t_vector		*up;
+	t_vector		*right;
+}					t_vcam;
+
 typedef struct		s_win
 {
 	void			*mlx;
 	void			*win;
-	int				heigth;
+	int				height;
 	int				width;
 	char			*title;
 	void			*img;
@@ -107,6 +118,7 @@ typedef struct		s_win
 	int				size_line;
 	int				endian;
 	t_scene			*scene;
+	t_vcam			*vcam;
 }					t_win;
 
 void		ft_ferror(char *message);
@@ -119,7 +131,7 @@ void		ft_free_win(t_win *win);
 int			ft_key_handle(int key, t_win *win);
 int			ft_put_image(t_win *win);
 
-t_vector	*ft_get_cam_vector(t_cam *cam);
+t_vcam		*ft_get_cam_vector(t_cam *cam);
 int			ft_get_color(t_win *win, t_vector *ray, t_vector *cam);
 
 double		ft_inter_sphere(t_vector *r, t_vector *c, void *data);

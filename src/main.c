@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:41:14 by rfrey             #+#    #+#             */
-/*   Updated: 2014/02/13 18:50:52 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/12 21:31:52 by gbersac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int			main(int argc, char **argv)
 		ft_print_scene_infos(scene);
 		ft_render_scene(scene);
 	}
+	rotate_cam(scene->cam, 20, 20, 20);
 	return (0);
 }
 

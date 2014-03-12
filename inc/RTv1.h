@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RTv1.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:42:15 by rfrey             #+#    #+#             */
-/*   Updated: 2014/02/14 23:55:12 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/12 21:27:49 by gbersac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@
 # include "list.h"
 # include "error.h"
 # include "vector.h"
-# define WIN_TITLE "RTv1"
-# define WIN_WIDTH 1600
-# define WIN_HEIGTH 1200
-# define KEY_ESC 65307
-# define COLOR_BACKGROUND 0x000000
-# define WIDTH win->width
-# define HEIGTH win->heigth
+# define WIN_TITLE			"RTv1"
+# define WIN_WIDTH			1600
+# define WIN_HEIGTH			1200
+# define KEY_ESC			65307
+# define COLOR_BACKGROUND	0x000000
+# define WIDTH				win->width
+# define HEIGTH				win->heigth
+# define PI					3.14159265359
 
 typedef double(*t_inter)(t_vector *ray, t_vector *cam, void *data);
 
@@ -56,6 +57,14 @@ typedef struct		s_camera
 	double			rot_y;
 	double			rot_z;
 }					t_cam;
+
+typedef struct        s_vcam
+{
+    t_vector        *orig;
+    t_vector        *dir; /*z*/
+    t_vector        *up; /*y*/
+    t_vector        *right; /*x*/
+}                    t_vcam;
 
 typedef struct		s_plan
 {
@@ -124,5 +133,6 @@ int			ft_get_color(t_win *win, t_vector *ray, t_vector *cam);
 
 double		ft_inter_sphere(t_vector *r, t_vector *c, void *data);
 double		ft_inter_plan(t_vector *r, t_vector *c, void *data);
+void		rotate_cam(t_vcam *cam, double a_x, double a_y, double a_z);
 
 #endif /* !RTV1_H */

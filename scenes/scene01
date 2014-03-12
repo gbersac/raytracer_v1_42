@@ -35,14 +35,14 @@ sphere
 
 sphere
 	- name: sphere bleu
-	- origin: 800,0,4000
+	- origin: 800,100,4000
 	- rotation: 0,0,0
 	- rayon: 200
 	- color: 255
 
 sphere
 	- name: sphere rouge
-	- origin: 0,0,4000
+	- origin: 800,0,4000
 	- rotation: 0,0,0
 	- rayon: 500
 	- color: 16711680

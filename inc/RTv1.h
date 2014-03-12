@@ -6,7 +6,7 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:42:15 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/12 21:34:45 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/12 21:49:45 by gbersac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@
 # include "list.h"
 # include "error.h"
 # include "vector.h"
+
 # define WIN_TITLE			"RTv1"
 # define WIN_WIDTH			1600
-# define WIN_HEIGTH			1200
+# define WIN_HEIGHT			1200
 # define KEY_ESC			65307
 # define COLOR_BACKGROUND	0x000000
 # define WIDTH				win->width
-# define HEIGTH				win->heigth
+# define HEIGHT				win->height
 # define VP_DIST			1
 # define VP_HEIGHT			0.5
 # define VP_WIDTH			0.35
@@ -105,14 +106,6 @@ typedef struct		s_scene
 	t_prim			*light;
 	t_prim			**primitives;
 }					t_scene;
-
-typedef struct		s_vcam
-{
-	t_vector		*orig;
-	t_vector		*dir;
-	t_vector		*up;
-	t_vector		*right;
-}					t_vcam;
 
 typedef struct		s_win
 {

@@ -6,11 +6,11 @@
 #    By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/09/30 11:03:46 by rfrey             #+#    #+#              #
-#    Updated: 2014/03/12 18:53:10 by gbersac          ###   ########.fr        #
+#    Updated: 2014/03/12 21:47:09 by gbersac          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC				= gcc
+CC				= cc
 CFLAGS			= -Wall -Werror -Wextra -O3 -g
 NAME			= RT
 PATH_OBJ		= obj

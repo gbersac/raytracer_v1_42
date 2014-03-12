@@ -6,7 +6,7 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/12 18:15:59 by gbersac           #+#    #+#             */
-/*   Updated: 2014/03/12 21:29:34 by gbersac          ###   ########.fr       */
+/*   Updated: 2014/03/12 21:50:26 by gbersac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*print_vector(t_vector *vect)
 	return (str);
 }
 
-static void	convert_to_radian(double angle)
+double		convert_to_radian(double angle)
 {
 	return (angle / 180 * PI);
 }
@@ -49,7 +49,7 @@ static void	rotate_cam_x(t_vcam *cam, double angle)
 
 void		rotate_cam(t_vcam *cam, double a_x, double a_y, double a_z)
 {
-	a_x = ;
+	a_x = convert_to_radian(a_x);
 	printf("avant vector y %s vecotr z %s\n", print_vector(cam->up), print_vector(cam->dir));
 	rotate_cam_x(cam, a_x);
 	printf("apres vector y %s vecotr z %s\n", print_vector(cam->up), print_vector(cam->dir));

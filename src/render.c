@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:41:44 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/12 21:34:26 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/12 21:41:56 by gbersac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,5 +125,6 @@ t_vcam			*ft_get_cam_vector(t_cam *cam)
 	vcam->right = ft_vec_create(1, 0, 0);
 	vcam->up = ft_vec_create(0, 1, 0);
 	vcam->dir = ft_vec_create(0, 0, 1);
+	rotate_cam(vcam, cam->rot_x, cam->rot_y, cam->rot_z);
 	return (vcam);
 }

@@ -3,26 +3,27 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rfrey <marvin@42.fr>                       +#+  +:+       +#+         #
+#    By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/09/30 11:03:46 by rfrey             #+#    #+#              #
-#    Updated: 2014/03/12 22:01:10 by rfrey            ###   ########.fr        #
+#    Updated: 2014/03/12 23:30:34 by rfrey            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra -O3 -g
-NAME = RT
-PATH_OBJ = obj
-PATH_SRC = src
-PATH_INC = inc
-PATH_LIBFT = libft
-LIBFT = libft.a
-PATH_LIBFT_INC = $(PATH_LIBFT)/includes
-SRC = debug.c main.c load_file.c render.c parse.c parse2.c sphere.c cam.c \
-light.c image.c handle.c free.c vector1.c vector2.c render2.c plan.c ray.c
-OBJ = $(patsubst %.c, $(PATH_OBJ)/%.o, $(SRC))
-MLX = -L /usr/X11/lib -lmlx -lXext -lX11
+CC				= cc
+CFLAGS			= -Wall -Werror -Wextra -O3 -g
+NAME			= RT
+PATH_OBJ		= obj
+PATH_SRC		= src
+PATH_INC		= inc
+PATH_LIBFT		= libft
+LIBFT			= libft.a
+PATH_LIBFT_INC	= $(PATH_LIBFT)/includes
+SRC				= debug.c main.c load_file.c render.c parse.c parse2.c \
+					sphere.c cam.c light.c image.c handle.c free.c vector1.c \
+					vector2.c render2.c plan.c rotate_cam.c ray.c
+OBJ				= $(patsubst %.c, $(PATH_OBJ)/%.o, $(SRC))
+MLX				= -L /usr/X11/lib -lmlx -lXext -lX11
 
 all : $(NAME)
 

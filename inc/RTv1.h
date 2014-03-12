@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RTv1.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:42:15 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/12 23:04:51 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/12 23:34:02 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,19 @@
 # include "list.h"
 # include "error.h"
 # include "vector.h"
-# define WIN_TITLE "RTv1"
-# define WIN_WIDTH 1600
-# define WIN_HEIGHT 1200
-# define KEY_ESC 65307
-# define COLOR_BACKGROUND 0x000000
-# define VP_DIST 1.0
-# define VP_HEIGHT 0.35
-# define VP_WIDTH 0.46
-# define X_RATIO VP_WIDTH / (double)WIN_WIDTH
-# define Y_RATIO VP_HEIGHT / (double)WIN_HEIGHT
+# define WIN_TITLE			"RTv1"
+# define WIN_WIDTH			1600
+# define WIN_HEIGHT			1200
+# define KEY_ESC			65307
+# define COLOR_BACKGROUND	0x000000
+# define WIDTH				win->width
+# define HEIGHT				win->height
+# define VP_DIST			1
+# define VP_HEIGHT			0.35
+# define VP_WIDTH			0.47
+# define X_RATIO			VP_WIDTH / (double)WIN_WIDTH
+# define Y_RATIO			VP_HEIGHT / (double)WIN_HEIGHT
+# define PI					3.14159265359
 
 typedef double(*t_inter)(t_vector *ray, t_vector *cam, void *data);
 
@@ -59,6 +62,14 @@ typedef struct		s_camera
 	double			rot_y;
 	double			rot_z;
 }					t_cam;
+
+typedef struct		s_vcam
+{
+	t_vector		*orig;
+	t_vector		*dir;
+	t_vector		*up;
+	t_vector		*right;
+}					t_vcam;
 
 typedef struct		s_plan
 {
@@ -97,14 +108,6 @@ typedef struct		s_scene
 	t_prim			**primitives;
 }					t_scene;
 
-typedef struct		s_vcam
-{
-	t_vector		*orig;
-	t_vector		*dir;
-	t_vector		*up;
-	t_vector		*right;
-}					t_vcam;
-
 typedef struct		s_win
 {
 	void			*mlx;
@@ -131,11 +134,10 @@ void		ft_free_win(t_win *win);
 int			ft_key_handle(int key, t_win *win);
 int			ft_put_image(t_win *win);
 t_vector	ft_get_start_ray(t_win *win);
-
 t_vcam		*ft_get_cam_vector(t_cam *cam);
 int			ft_get_color(t_win *win, t_vector *ray, t_vector *cam);
-
 double		ft_inter_sphere(t_vector *r, t_vector *c, void *data);
 double		ft_inter_plan(t_vector *r, t_vector *c, void *data);
+void		rotate_cam(t_vcam *cam, double a_x, double a_y, double a_z);
 
 #endif /* !RTV1_H */

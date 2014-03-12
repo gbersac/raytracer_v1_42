@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:41:54 by rfrey             #+#    #+#             */
-/*   Updated: 2014/02/14 23:55:11 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/12 18:05:22 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,16 @@ t_prim			*ft_parse_plan(t_list **tokens)
 	}
 	return (prim);
 }
-
+/*
 static t_vector	*ft_get_normal(t_plan *plan)
 {
 	t_vector	*ret;
+
 	++plan; // useless
-	ret = ft_vector_create(0, 1, 0);
+	ret = ft_vec_create(0, 1, 0);
 	return (ret);
 }
+
 
 double			ft_inter_plan(t_vector *r, t_vector *c, void *data)
 {
@@ -91,11 +93,12 @@ double			ft_inter_plan(t_vector *r, t_vector *c, void *data)
 	p = (t_plan*)data;
 	n = ft_get_normal(p);
 	a = n->x * (c->x - p->x0) + n->y * (c->y - p->y0);
-	t_vector *n2 = ft_vector_sub(ft_vector_create(0, 0, 0), n);
-	a = a + n->z * (c->z - p->z0) + ft_vector_dot_product(n2, ft_vector_create(p->x0, p->y0, p->z0)); // D = 0    what is D ???
+	t_vector *n2 = ft_vec_sub(ft_vec_create(0, 0, 0), n);
+	a = a + n->z * (c->z - p->z0) + ft_vec_dot_product(n2, ft_vec_create(p->x0, p->y0, p->z0)); // D = 0    what is D ???
 	b = n->x * r->x + n->y * r->y + n->z * r->z;
 	t = - (a / b);
 	if ( t > 0)
 		return (t);
 	return (-1);
 }
+*/

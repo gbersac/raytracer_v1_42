@@ -22,10 +22,6 @@
 #
 # les champs omis valent 0 ou chaine vide
 
-plan
-	- name: plan blanc
-	- color: 16777215
-
 sphere
 	- name: sphere vert
 	- origin: -800,0,4000
@@ -35,7 +31,7 @@ sphere
 
 sphere
 	- name: sphere bleu
-	- origin: 800,100,4000
+	- origin: 600,0,4000
 	- rotation: 0,0,0
 	- rayon: 200
 	- color: 255

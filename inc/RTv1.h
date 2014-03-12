@@ -6,7 +6,7 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:42:15 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/12 21:27:49 by gbersac          ###   ########.fr       */
+/*   Updated: 2014/03/12 21:34:45 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@
 # define COLOR_BACKGROUND	0x000000
 # define WIDTH				win->width
 # define HEIGTH				win->heigth
+# define VP_DIST			1
+# define VP_HEIGHT			0.5
+# define VP_WIDTH			0.35
 # define PI					3.14159265359
 
 typedef double(*t_inter)(t_vector *ray, t_vector *cam, void *data);
@@ -103,11 +106,19 @@ typedef struct		s_scene
 	t_prim			**primitives;
 }					t_scene;
 
+typedef struct		s_vcam
+{
+	t_vector		*orig;
+	t_vector		*dir;
+	t_vector		*up;
+	t_vector		*right;
+}					t_vcam;
+
 typedef struct		s_win
 {
 	void			*mlx;
 	void			*win;
-	int				heigth;
+	int				height;
 	int				width;
 	char			*title;
 	void			*img;
@@ -116,6 +127,7 @@ typedef struct		s_win
 	int				size_line;
 	int				endian;
 	t_scene			*scene;
+	t_vcam			*vcam;
 }					t_win;
 
 void		ft_ferror(char *message);
@@ -128,7 +140,7 @@ void		ft_free_win(t_win *win);
 int			ft_key_handle(int key, t_win *win);
 int			ft_put_image(t_win *win);
 
-t_vector	*ft_get_cam_vector(t_cam *cam);
+t_vcam		*ft_get_cam_vector(t_cam *cam);
 int			ft_get_color(t_win *win, t_vector *ray, t_vector *cam);
 
 double		ft_inter_sphere(t_vector *r, t_vector *c, void *data);

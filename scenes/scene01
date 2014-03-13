@@ -24,25 +24,25 @@
 
 sphere
 	- name: sphere vert
-	- origin: -20,0,200
+	- origin: 10,0,20
 	- rayon: 10
 	- color: 65280
 
 sphere
 	- name: sphere bleu
-	- origin: 20,0,200
+	- origin: -10,0,20
 	- rayon: 10
 	- color: 255
 
 sphere
 	- name: sphere rouge
-	- origin: -20,0,100
+	- origin: 10,0,10
 	- rayon: 10
 	- color: 16711680
 
 sphere
 	- name: sphere blanche
-	- origin: 20,0,100
+	- origin: -10,0,10
 	- rayon: 10
 	- color: 16777215
 
@@ -53,5 +53,5 @@ light
 
 camera
 	- name: main cam
-	- origin: 0,10,0
-
+	- origin: 0,0,-50
+	- rotation: 10,0,0

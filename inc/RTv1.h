@@ -66,9 +66,9 @@ typedef struct		s_camera
 typedef struct		s_vcam
 {
 	t_vector		*orig;
-	t_vector		*dir;
-	t_vector		*up;
-	t_vector		*right;
+	t_vector		*dir; /*z*/
+	t_vector		*up; /*y*/
+	t_vector		*right; /*x*/
 }					t_vcam;
 
 typedef struct		s_plan

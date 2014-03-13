@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:41:54 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/12 18:05:22 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/13 17:07:55 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,7 @@ static t_vector	*ft_get_normal(t_plan *plan)
 	ret = ft_vec_create(0, 1, 0);
 	return (ret);
 }
-
-
+*/
 double			ft_inter_plan(t_vector *r, t_vector *c, void *data)
 {
 	t_vector	*n;
@@ -101,4 +100,3 @@ double			ft_inter_plan(t_vector *r, t_vector *c, void *data)
 		return (t);
 	return (-1);
 }
-*/

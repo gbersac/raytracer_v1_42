@@ -22,6 +22,9 @@
 #
 # les champs omis valent 0 ou chaine vide
 
+plan
+	- color: 650
+
 sphere
 	- name: sphere vert
 	- origin: -20,0,200

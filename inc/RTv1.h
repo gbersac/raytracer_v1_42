@@ -6,7 +6,7 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:42:15 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/13 19:24:45 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/13 23:05:07 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,12 @@
 # include "list.h"
 # include "error.h"
 # include "vector.h"
+# include "primitives.h"
 # define WIN_TITLE			"RTv1"
 # define WIN_WIDTH			1600
 # define WIN_HEIGHT			1200
 # define KEY_ESC			65307
 # define COLOR_BACKGROUND	0x000000
-# define WIDTH				win->width
-# define HEIGHT				win->height
 # define VP_DIST			1
 # define VP_HEIGHT			0.35
 # define VP_WIDTH			0.47
@@ -38,31 +37,6 @@
 
 typedef double(*t_inter)(t_vector *ray, t_vector *cam, void *data);
 
-typedef enum		e_prim_type
-{
-	SPHERE, CAM, LIGHT, PLAN
-}					t_prim_type;
-
-typedef struct		s_light
-{
-	double			x0;
-	double			y0;
-	double			z0;
-	double			rot_x;
-	double			rot_y;
-	double			rot_z;
-}					t_light;
-
-typedef struct		s_camera
-{
-	double			x0;
-	double			y0;
-	double			z0;
-	double			rot_x;
-	double			rot_y;
-	double			rot_z;
-}					t_cam;
-
 typedef struct		s_vcam
 {
 	t_vector		*orig;
@@ -70,36 +44,6 @@ typedef struct		s_vcam
 	t_vector		*up; /*y*/
 	t_vector		*right; /*x*/
 }					t_vcam;
-
-typedef struct		s_plan
-{
-	double			x0;
-	double			y0;
-	double			z0;
-	double			rot_x;
-	double			rot_y;
-	double			rot_z;
-	int				color;
-}					t_plan;
-
-typedef struct		s_sphere
-{
-	double			x0;
-	double			y0;
-	double			z0;
-	double			rot_x;
-	double			rot_y;
-	double			rot_z;
-	int				color;
-	double			rayon;
-}					t_sphere;
-
-typedef struct		s_primitive
-{
-	t_prim_type		type;
-	char			*name;
-	void			*data;
-}					t_prim;
 
 typedef struct		s_scene
 {

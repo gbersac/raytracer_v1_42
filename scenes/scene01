@@ -22,32 +22,39 @@
 #
 # les champs omis valent 0 ou chaine vide
 
-plan
-	- color: 650
-
 sphere
 	- name: sphere vert
-	- origin: 10,0,20
-	- rayon: 10
+	- origin: 50,0,300
+	- rayon: 20
 	- color: 65280
 
 sphere
 	- name: sphere bleu
-	- origin: -10,0,20
-	- rayon: 10
+	- origin: -50,0,300
+	- rayon: 20
 	- color: 255
 
 sphere
 	- name: sphere rouge
-	- origin: 10,0,10
-	- rayon: 10
+	- origin: 50,0,400
+	- rayon: 20
 	- color: 16711680
 
 sphere
 	- name: sphere blanche
-	- origin: -10,0,10
-	- rayon: 10
+	- origin: -50,0,400
+	- rayon: 20
 	- color: 16777215
+
+plan
+	- name: plan plat
+	- origin: 0,-5,0
+	- color: 5253160
+
+plan
+	- name: plan plat aussi
+	- origin: 50,5,50
+	- color: 2629190
 
 light
 	- name: main light
@@ -55,6 +62,7 @@ light
 	- rotation: 45,45,45
 
 camera
-	- name: main cam
-	- origin: 0,0,-50
-	- rotation: 10,0,0
+	- origin: 0,0,-100
+	- rotation: 0,0,0
+
+# achtung ! segfault qd il manke double point apres name (et les autres ?)

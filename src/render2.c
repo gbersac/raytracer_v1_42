@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 22:32:00 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/13 17:06:30 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/13 22:06:13 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int				ft_get_color(t_win *win, t_vector *ray, t_vector *cam)
 	{
 		f = ft_get_inter_func(win->scene->primitives[i]->type);
 		tmp_d = f(ray, cam, (win->scene->primitives[i]->data));
-		if ((tmp_d != -1 && tmp_d < short_d) || (short_d == -1 && tmp_d != -1))
+		if ((tmp_d > 0 && tmp_d < short_d) || (short_d == -1 && tmp_d > 0))
 		{
 			short_d = tmp_d;
 			color = ((t_sphere*)(win->scene->primitives[i]->data))->color;

@@ -6,12 +6,14 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:41:54 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/13 17:07:55 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/13 22:39:21 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RTv1.h"
 #include "load_file.h"
+//
+#include <stdio.h>
 
 static t_plan	*ft_init_plan(void)
 {
@@ -71,32 +73,32 @@ t_prim			*ft_parse_plan(t_list **tokens)
 	}
 	return (prim);
 }
-/*
-static t_vector	*ft_get_normal(t_plan *plan)
-{
-	t_vector	*ret;
 
-	++plan; // useless
-	ret = ft_vec_create(0, 1, 0);
-	return (ret);
+static t_vector	ft_get_normal(double x_rot, double y_rot, double z_rot)
+{
+	t_vector	n;
+
+	n.x = 0;
+	n.y = 1;
+	n.z = 0;
+	x_rot++;
+	y_rot++;
+	z_rot++;
+	return (n);
 }
-*/
+
 double			ft_inter_plan(t_vector *r, t_vector *c, void *data)
 {
-	t_vector	*n;
 	t_plan		*p;
+	t_vector	n;
+	double		d;
 	double		a;
 	double		b;
-	double		t;
 
 	p = (t_plan*)data;
-	n = ft_get_normal(p);
-	a = n->x * (c->x - p->x0) + n->y * (c->y - p->y0);
-	t_vector *n2 = ft_vec_sub(ft_vec_create(0, 0, 0), n);
-	a = a + n->z * (c->z - p->z0) + ft_vec_dot_product(n2, ft_vec_create(p->x0, p->y0, p->z0)); // D = 0    what is D ???
-	b = n->x * r->x + n->y * r->y + n->z * r->z;
-	t = - (a / b);
-	if ( t > 0)
-		return (t);
-	return (-1);
+	n = ft_get_normal(p->rot_x, p->rot_y, p->rot_z);
+	d = -(n.x * p->x0 + n.y * p->y0 + n.z * p->z0);
+	a = n.x * (c->x - p->x0) + n.y * (c->y - p->y0) + n.z * (c->z - p->z0) + d;
+	b = n.x * r->x + n.y * r->y + n.z * r->z;
+	return (-(a / b));
 }

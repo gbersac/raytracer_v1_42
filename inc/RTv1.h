@@ -6,7 +6,7 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:42:15 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/13 19:24:45 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/14 14:45:19 by gbersac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ typedef double(*t_inter)(t_vector *ray, t_vector *cam, void *data);
 
 typedef enum		e_prim_type
 {
-	SPHERE, CAM, LIGHT, PLAN
+	SPHERE,
+	CAM,
+	LIGHT,
+	PLAN
 }					t_prim_type;
 
 typedef struct		s_light

@@ -46,16 +46,6 @@ sphere
 	- rayon: 20
 	- color: 16777215
 
-plan
-	- name: plan plat
-	- origin: 0,-5,0
-	- color: 5253160
-
-plan
-	- name: plan plat aussi
-	- origin: 50,5,50
-	- color: 2629190
-
 light
 	- name: main light
 	- origin: 2,3,4
@@ -63,6 +53,6 @@ light
 
 camera
 	- origin: 0,0,-100
-	- rotation: 0,0,0
+	- rotation: 10,10,50
 
 # achtung ! segfault qd il manke double point apres name (et les autres ?)

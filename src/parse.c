@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:41:30 by rfrey             #+#    #+#             */
-/*   Updated: 2014/02/14 22:43:50 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/14 16:54:14 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static t_parse_prim	ft_get_parse_prim_func(t_prim_type type)
 									{LIGHT, ft_parse_light},
 									{SPHERE, ft_parse_sphere},
 									{PLAN, ft_parse_plan},
+									{CYLINDER, ft_parse_cylinder},
+									{CONE, ft_parse_cone},
 									};
 
 	i = 0;
@@ -43,6 +45,10 @@ static t_parse_prim	ft_get_parse_func(char *str)
 		return (ft_get_parse_prim_func(LIGHT));
 	else if (ft_strequ(str, "plan"))
 		return (ft_get_parse_prim_func(PLAN));
+	else if (ft_strequ(str, "cone"))
+		return (ft_get_parse_prim_func(CONE));
+	else if (ft_strequ(str, "cylinder"))
+		return (ft_get_parse_prim_func(CYLINDER));
 	else
 		return (NULL);
 }

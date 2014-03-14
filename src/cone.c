@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 22:51:09 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/14 18:40:02 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/14 19:11:10 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ double			ft_inter_cone(t_vector *r, t_vector *c, void *data)
 	double		z;
 	t_cone		*p;
 	p = (t_cone*)data;
-/*
 	x = pow(r->x, 2) * p->angle + pow(r->z, 2) * p->angle - pow(r->y, 2);
 	y = 2 * ((r->x * (c->x - p->x0) * p->angle)
 		+ (r->z * (c->z - p->z0) * p->angle)
@@ -89,7 +88,11 @@ double			ft_inter_cone(t_vector *r, t_vector *c, void *data)
 	z = pow(c->x - p->x0, 2) * p->angle
 		+ pow(c->z - p->z0, 2) * p->angle
 		- pow(c->y - p->y0, 2);
-*/
+/*
 	x = pow(r->x, 2) - pow(r->y, 2) * pow(p->angle, 2) + pow(r->z, 2);
+	y = 2 * ((c->x - p->x0) * r->x - (((c->y - p->y0) * r->y) * pow(p->angle, 2))
+			+ (c->z - p->z0) * r->z);
+	z = pow(c->x - p->x0, 2) - (pow(c->y - p->y0, 2) * pow(p->angle , 2)) + pow(c->z - p->z0, 2);
+*/
 	return (ft_get_smaller_dist(x, y, z));
 }

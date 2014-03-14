@@ -6,7 +6,7 @@
 #    By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/09/30 11:03:46 by rfrey             #+#    #+#              #
-#    Updated: 2014/03/13 23:07:53 by rfrey            ###   ########.fr        #
+#    Updated: 2014/03/14 16:29:07 by rfrey            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ PATH_LIBFT_INC	= $(PATH_LIBFT)/includes
 SRC				= debug.c main.c load_file.c render.c parse.c parse2.c \
 					sphere.c cam.c light.c image.c handle.c free.c vector1.c \
 					vector2.c render2.c plan.c rotate_cam.c ray.c cone.c \
-					cylinder.c
+					cylinder.c primitives.c
 OBJ				= $(patsubst %.c, $(PATH_OBJ)/%.o, $(SRC))
 MLX				= -L /usr/X11/lib -lmlx -lXext -lX11
 

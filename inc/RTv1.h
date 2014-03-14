@@ -6,7 +6,7 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:42:15 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/13 23:05:07 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/14 16:29:46 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,9 @@ int			ft_put_image(t_win *win);
 t_vector	ft_get_start_ray(t_win *win);
 t_vcam		*ft_get_cam_vector(t_cam *cam);
 int			ft_get_color(t_win *win, t_vector *ray, t_vector *cam);
+double		ft_get_smaller_dist(double x, double y, double z);
 double		ft_inter_sphere(t_vector *r, t_vector *c, void *data);
+double		ft_inter_cone(t_vector *r, t_vector *c, void *data);
 double		ft_inter_plan(t_vector *r, t_vector *c, void *data);
 void		rotate_cam(t_vcam *cam, double a_x, double a_y, double a_z);
 

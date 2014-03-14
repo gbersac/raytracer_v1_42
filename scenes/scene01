@@ -22,6 +22,12 @@
 #
 # les champs omis valent 0 ou chaine vide
 
+cone
+	- name: cone conique
+	- origin: 0,50,350
+	- angle: 30
+	- color: 46546
+
 sphere
 	- name: sphere vert
 	- origin: 50,0,300
@@ -46,15 +52,15 @@ sphere
 	- rayon: 20
 	- color: 16777215
 
-plan
-	- name: plan plat
-	- origin: 0,-5,0
-	- color: 5253160
+#plan
+#	- name: plan plat
+#	- origin: 0,-50,0
+#	- color: 5253160
 
-plan
-	- name: plan plat aussi
-	- origin: 50,5,50
-	- color: 2629190
+#plan
+#	- name: plan plat aussi
+#	- origin: 50,50,50
+#	- color: 2629190
 
 light
 	- name: main light
@@ -62,7 +68,7 @@ light
 	- rotation: 45,45,45
 
 camera
-	- origin: 0,0,-100
-	- rotation: 0,0,0
+	- origin: 0,40,-100
+	- rotation: -6,0,0
 
 # achtung ! segfault qd il manke double point apres name (et les autres ?)

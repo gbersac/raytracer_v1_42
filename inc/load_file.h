@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:42:39 by rfrey             #+#    #+#             */
-/*   Updated: 2014/02/14 22:44:31 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/14 17:30:55 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,7 @@ t_prim		*ft_parse_light(t_list **tokens);
 t_prim		*ft_parse_cam(t_list **tokens);
 t_prim		*ft_parse_sphere(t_list **tokens);
 t_prim		*ft_parse_plan(t_list **tokens);
+t_prim		*ft_parse_cone(t_list **tokens);
+t_prim		*ft_parse_cylinder(t_list **tokens);
 
 #endif /* !LOAD_FILE_H */

@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 22:32:00 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/13 22:59:26 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/14 16:39:05 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static t_inter	ft_get_inter_func(t_prim_type type)
 		f = ft_inter_plan;
 //	else if (type == CYLINDER)
 //		f = ft_inter_cylinder;
-//	else if (type == CONE)
-//		f = ft_inter_cone;
+	else if (type == CONE)
+		f = ft_inter_cone;
 	else
 		ft_ferror("Erreur : Aucune fonction trouver pour cette primitive.");
 	return (f);

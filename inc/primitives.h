@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 23:00:35 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/13 23:06:10 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/13 23:18:57 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ typedef struct		s_cone
 	double			rot_y;
 	double			rot_z;
 	int				color;
+	double			angle;
 }					t_cone;
 
 typedef struct		s_primitive

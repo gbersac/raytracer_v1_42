@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 22:51:09 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/13 23:00:05 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/14 18:10:50 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ static void		ft_update_cone(t_prim *prim, t_token *tok1, t_token *tok2)
 		z = &(((t_cone*)(prim->data))->rot_z);
 		ft_set_coord(tok2->value, x, y, z);
 	}
+	else if (ft_strequ(tok1->value, "angle"))
+		((t_cone*)(prim->data))->angle = ft_atoi(tok2->value);
 	else if (ft_strequ(tok1->value, "color"))
 		((t_cone*)(prim->data))->color = ft_atoi(tok2->value);
 }
@@ -72,11 +74,20 @@ t_prim			*ft_parse_cone(t_list **tokens)
 	return (prim);
 }
 
-/*
 double			ft_inter_cone(t_vector *r, t_vector *c, void *data)
 {
-	t_cone		*s;
+	double		x;
+	double		y;
+	double		z;
+	t_cone		*p;
 
-	s = (t_cone*)data;
+	p = (t_cone*)data;
+	x = pow(r->x, 2) * p->angle + pow(r->z, 2) * p->angle - pow(r->y, 2);
+	y = 2 * ((r->x * (c->x - p->x0) * p->angle)
+		+ (r->z * (c->z - p->z0) * p->angle)
+		- (r->y * (c->y - p->y0)));
+	z = pow(c->x - p->x0, 2) * p->angle
+		+ pow(c->z - p->z0, 2) * p->angle
+		- pow(c->y - p->y0, 2);
+	return (ft_get_smaller_dist(x, y, z));
 }
-*/

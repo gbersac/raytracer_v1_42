@@ -6,28 +6,12 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:41:54 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/13 22:40:18 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/14 16:28:54 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RTv1.h"
 #include "load_file.h"
-
-static double	ft_dist_sphere(double x, double y, double z)
-{
-	double		det;
-	double		d1;
-	double		d2;
-
-	det = pow(y, 2) - 4 * x * z;
-	if (det < 0)
-		return (-1);
-	d1 = (-y + sqrt(det)) / 2 * x;
-	d2 = (-y - sqrt(det)) / 2 * x;
-	if (d1 > d2)
-		return (d2);
-	return (d1);
-}
 
 static t_sphere	*ft_init_sphere(void)
 {
@@ -103,5 +87,5 @@ double			ft_inter_sphere(t_vector *r, t_vector *c, void *data)
 	y *= 2;
 	z = pow(c->x - s->x0, 2) + pow(c->y - s->y0, 2) + pow(c->z - s->z0, 2);
 	z -= pow(s->rayon, 2);
-	return (ft_dist_sphere(x, y, z));
+	return (ft_get_smaller_dist(x, y, z));
 }

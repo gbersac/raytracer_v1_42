@@ -6,11 +6,12 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/12 18:15:59 by gbersac           #+#    #+#             */
-/*   Updated: 2014/03/13 22:44:11 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/14 17:31:04 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RTv1.h"
+//
 #include <stdio.h>
 
 char			*print_vector(t_vector *vect)

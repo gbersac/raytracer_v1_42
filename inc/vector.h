@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 23:47:48 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/12 18:40:10 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/14 14:57:39 by gbersac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define VECTOR_H
 # include <math.h>
 
-typedef struct		e_vector
+typedef struct		s_vector
 {
 	double			x;
 	double			y;

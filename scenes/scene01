@@ -68,7 +68,7 @@ light
 	- rotation: 45,45,45
 
 camera
-	- origin: 0,40,-100
-	- rotation: -6,0,0
+	- origin: 0,0,-100
+	- rotation: 10,10,50
 
 # achtung ! segfault qd il manke double point apres name (et les autres ?)

@@ -6,7 +6,7 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 23:47:48 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/14 14:57:39 by gbersac          ###   ########.fr       */
+/*   Updated: 2014/03/14 21:17:34 by gbersac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ t_vector	ft_vec_normalize(t_vector v);
 double		ft_vec_dot_product(t_vector v1, t_vector v2);
 t_vector	ft_vec_cross_product(t_vector v1, t_vector v2);
 t_vector	ft_vec_product(t_vector v1, double n);
+char		*print_vector(t_vector *vect);
 
 #endif /* !VECTOR_H */

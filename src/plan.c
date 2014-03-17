@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   plan.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:41:54 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/14 18:14:34 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/17 16:26:01 by gbersac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RTv1.h"
+#include "rotation.h"
 #include "load_file.h"
 //
 #include <stdio.h>
@@ -76,14 +77,23 @@ t_prim			*ft_parse_plan(t_list **tokens)
 
 static t_vector	ft_get_normal(double x_rot, double y_rot, double z_rot)
 {
-	t_vector	n;
+	static t_vector		n;
+	static int			is_first = 0;
+	static t_rotate_arg	arg;
 
-	n.x = 0;
-	n.y = 1;
-	n.z = 0;
-	x_rot++;
-	y_rot++;
-	z_rot++;
+	if (!is_first)
+	{
+		arg.a_x = x_rot;
+		arg.a_y = y_rot;
+		arg.a_z = z_rot;
+		init_rotation_trigo(&arg);
+		n.x = 0;
+		n.y = 1;
+		n.z = 0;
+		rotate_vector(&n, &arg);
+		printf("vector normal au plan %s\n", print_vector(&n));
+		is_first = 1;
+	}
 	return (n);
 }
 

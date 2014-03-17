@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   primitives.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 23:00:35 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/13 23:18:57 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/17 16:29:16 by gbersac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,10 @@ typedef struct		s_plan
 
 typedef struct		s_cylinder
 {
-	double			x0;
-	double			y0;
-	double			z0;
-	double			rot_x;
-	double			rot_y;
-	double			rot_z;
-	int				color;
+	t_vector		*origin;
+	t_vector		*axis;
 	double			rayon;
+	int				color;
 }					t_cylinder;
 
 typedef struct		s_sphere

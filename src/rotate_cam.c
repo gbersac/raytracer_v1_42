@@ -6,7 +6,7 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/12 18:15:59 by gbersac           #+#    #+#             */
-/*   Updated: 2014/03/14 18:18:56 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/14 21:30:59 by gbersac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,6 @@
 #include "rotation.h"
 //
 #include <stdio.h>
-
-char			*print_vector(t_vector *vect)
-{
-	char *str = (char*) malloc(sizeof(char) * 100);
-	sprintf(str, "{x:%f y:%f z:%f}", vect->x, vect->y, vect->z);
-	return (str);
-}
 
 double			convert_to_radian(double angle)
 {
@@ -47,14 +40,25 @@ void			rotate_vector(t_vector *vec, t_rotate_arg *a)
 			buf_z * (a->cosx * a->cosy);
 }
 
-void			rotate_reference(t_rotate_arg *arg)
+/*
+** Angle are supposed to be measured in degree.
+*/
+void			init_rotation_trigo(t_rotate_arg *arg)
 {
+	arg->a_x = -convert_to_radian(arg->a_x);
+	arg->a_y = convert_to_radian(arg->a_y);
+	arg->a_z = convert_to_radian(arg->a_z);
 	arg->cosx = cos(arg->a_x);
 	arg->cosy = cos(arg->a_y);
 	arg->cosz = cos(arg->a_z);
 	arg->sinx = sin(arg->a_x);
 	arg->siny = sin(arg->a_y);
 	arg->sinz = sin(arg->a_z);
+}
+
+void			rotate_reference(t_rotate_arg *arg)
+{
+	init_rotation_trigo(arg);
 	rotate_vector(arg->v_z, arg);
 	rotate_vector(arg->v_y, arg);
 	rotate_vector(arg->v_x, arg);
@@ -67,9 +71,9 @@ void			rotate_cam(t_vcam *cam, double a_x, double a_y, double a_z)
 	arg.v_x = cam->right;
 	arg.v_y = cam->up;
 	arg.v_z = cam->dir;
-	arg.a_x = -convert_to_radian(a_x);
-	arg.a_y = convert_to_radian(a_y);
-	arg.a_z = convert_to_radian(a_z);
+	arg.a_x = a_x;
+	arg.a_y = a_y;
+	arg.a_z = a_z;
 	rotate_reference(&arg);
 }
 

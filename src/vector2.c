@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   vector2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 23:47:26 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/12 19:13:27 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/14 21:18:25 by gbersac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
-
+#include <stdlib.h>
+#include <stdio.h>
 double		ft_vec_dot_product(t_vector v1, t_vector v2)
 {
 	double	res;
@@ -40,4 +41,11 @@ t_vector	ft_vec_product(t_vector v1, double n)
 	res.y = v1.y * n;
 	res.z = v1.z * n;
 	return (res);
+}
+
+char			*print_vector(t_vector *vect)
+{
+	char *str = (char*) malloc(sizeof(char) * 100);
+	sprintf(str, "{x:%f y:%f z:%f}", vect->x, vect->y, vect->z);
+	return (str);
 }

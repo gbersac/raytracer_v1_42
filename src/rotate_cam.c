@@ -6,7 +6,7 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/12 18:15:59 by gbersac           #+#    #+#             */
-/*   Updated: 2014/03/14 21:30:59 by gbersac          ###   ########.fr       */
+/*   Updated: 2014/03/17 17:02:22 by gbersac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 double			convert_to_radian(double angle)
 {
-	return (angle / 180 * PI);
+	return (angle / 180.0 * PI);
 }
 
 void			rotate_vector(t_vector *vec, t_rotate_arg *a)

@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:41:54 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/14 16:28:54 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/14 23:10:00 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,7 @@ double			ft_inter_sphere(t_vector *r, t_vector *c, void *data)
 	y *= 2;
 	z = pow(c->x - s->x0, 2) + pow(c->y - s->y0, 2) + pow(c->z - s->z0, 2);
 	z -= pow(s->rayon, 2);
+	if (x == 0)
+		return (-(z / y));
 	return (ft_get_smaller_dist(x, y, z));
 }

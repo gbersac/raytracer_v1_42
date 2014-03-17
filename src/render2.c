@@ -6,7 +6,7 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 22:32:00 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/17 16:50:42 by gbersac          ###   ########.fr       */
+/*   Updated: 2014/03/17 17:02:39 by gbersac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int				ft_get_color(t_win *win, t_vector *ray, t_vector *cam)
 	{
 		f = ft_get_inter_func(win->scene->primitives[i]->type);
 		tmp_d = f(ray, cam, (win->scene->primitives[i]->data));
-		if ((tmp_d > 0 && tmp_d < short_d) || (short_d == -1 && tmp_d > 0))
+		if ((tmp_d >= 0 && tmp_d < short_d) || (short_d == -1 && tmp_d >= 0))
 		{
 			short_d = tmp_d;
 			color = ft_get_color_pritive(win->scene->primitives[i]);

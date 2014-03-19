@@ -6,7 +6,7 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/12 18:15:59 by gbersac           #+#    #+#             */
-/*   Updated: 2014/03/17 17:02:22 by gbersac          ###   ########.fr       */
+/*   Updated: 2014/03/19 19:19:52 by gbersac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void			rotate_vector(t_vector *vec, t_rotate_arg *a)
 */
 void			init_rotation_trigo(t_rotate_arg *arg)
 {
-	arg->a_x = -convert_to_radian(arg->a_x);
+	arg->a_x = convert_to_radian(arg->a_x);
 	arg->a_y = convert_to_radian(arg->a_y);
 	arg->a_z = convert_to_radian(arg->a_z);
 	arg->cosx = cos(arg->a_x);

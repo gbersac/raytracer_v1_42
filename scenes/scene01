@@ -24,7 +24,7 @@
 
 cone
 	- name: cone conique
-	- origin: 0,0,1350
+	- origin: 0,0,100
 	- angle: 156
 	- color: 46546
 
@@ -69,15 +69,14 @@ light
 	- rotation: 45,45,45
 
 camera
-	- origin: 0,40,-100
-	- rotation: -6,0,0
+	- origin: 0,41,-500
+	- rotation: 0,0,0
 
 cylinder
 	- name: jolie cylindre
-	- origin: 0,40,-100
-	- rotation: 0,0,0
-	- rayon: 50
+	- origin: 0,0,150
+	- rotation: 80,0,0
+	- rayon: 10
 	- color: 2629190
 
 # achtung ! segfault qd il manke double point apres name (et les autres ?)
-

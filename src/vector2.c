@@ -6,7 +6,7 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 23:47:26 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/18 23:26:06 by gbersac          ###   ########.fr       */
+/*   Updated: 2014/03/19 18:59:53 by gbersac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,11 @@ t_vector	*ft_vec_cpy(t_vector *vec)
 	to_return->y = vec->y;
 	to_return->z = vec->z;
 	return (to_return);
+}
+
+t_vector	invert_vector(t_vector *vec)
+{
+	static t_vector	vnull = {0, 0, 0};
+
+	return (ft_vec_sub(vnull, *vec));
 }

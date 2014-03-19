@@ -6,12 +6,14 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/14 22:32:00 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/17 17:02:39 by gbersac          ###   ########.fr       */
+/*   Updated: 2014/03/19 18:23:52 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RTv1.h"
 #include "debug.h"
+//
+#include <stdio.h>
 
 static t_inter	ft_get_inter_func(t_prim_type type)
 {

@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/12 21:47:06 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/14 23:11:00 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/19 18:50:40 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ t_vector		ft_get_start_ray(t_win *win)
 	r = ft_vec_product(*win->vcam->dir, VP_DIST);
 	r = ft_vec_add(r, ft_vec_product(*win->vcam->up, VP_HEIGHT / 2.0));
 	r = ft_vec_sub(r, ft_vec_product(*win->vcam->right, VP_WIDTH / 2.0));
-	return (ft_vec_normalize(r));
+	return (r);
 }

@@ -6,7 +6,7 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:41:54 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/17 17:02:54 by gbersac          ###   ########.fr       */
+/*   Updated: 2014/03/18 15:58:51 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ double			ft_inter_plan(t_vector *r, t_vector *c, void *data)
 	double		b;
 
 	p = (t_plan*)data;
+
 	n = ft_get_normal(p->rot_x, p->rot_y, p->rot_z);
 	d = -(n.x * p->x0 + n.y * p->y0 + n.z * p->z0);
 	a = n.x * (c->x - p->x0) + n.y * (c->y - p->y0) + n.z * (c->z - p->z0) + d;

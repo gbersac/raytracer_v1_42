@@ -46,11 +46,11 @@ sphere
 	- rayon: 20
 	- color: 16711680
 
-sphere
-	- name: sphere blanche
-	- origin: -50,0,400
-	- rayon: 20
-	- color: 16777215
+# sphere
+# 	- name: sphere blanche
+# 	- origin: -50,0,400
+# 	- rayon: 20
+# 	- color: 16777215
 
 #plan
 #	- name: plan plat
@@ -60,7 +60,7 @@ sphere
 # plan
 # 	- name: plan plat aussi
 # 	- origin: 0,0,0
-# 	- color: 2629190
+# 	- color: 5253160
 # 	- rotation: 3,0,0
 
 light
@@ -74,9 +74,9 @@ camera
 
 cylinder
 	- name: jolie cylindre
-	- origin: 0,0,200
-	- axis: 0,0,100
-	- rayon: 10
+	- origin: 0,40,-100
+	- rotation: 0,0,0
+	- rayon: 50
 	- color: 2629190
 
 # achtung ! segfault qd il manke double point apres name (et les autres ?)

@@ -22,7 +22,7 @@ PATH_LIBFT_INC	= $(PATH_LIBFT)/includes
 SRC				= debug.c main.c load_file.c render.c parse.c parse2.c \
 					sphere.c cam.c light.c image.c handle.c free.c vector1.c \
 					vector2.c render2.c plan.c rotate_cam.c ray.c cone.c \
-					cylinder.c primitives.c
+					cylinder.c primitives.c cylinder_inter.c
 
 OBJ				= $(patsubst %.c, $(PATH_OBJ)/%.o, $(SRC))
 MLX				= -L /usr/X11/lib -lmlx -lXext -lX11

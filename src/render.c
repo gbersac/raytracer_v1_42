@@ -6,7 +6,7 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:41:44 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/14 21:28:48 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/18 23:30:32 by gbersac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,17 @@ void			ft_render_scene(t_scene *scene)
 
 t_vcam			*ft_get_cam_vector(t_cam *cam)
 {
-	t_vcam		*vcam;
+	static t_vcam		*vcam = NULL;
 
-	if ((!(vcam = (t_vcam*)malloc(sizeof(t_vcam)))))
-		ft_ferror(ERR_MALLOC);
-	vcam->orig = ft_vec_create(cam->x0, cam->y0, cam->z0);
-	vcam->right = ft_vec_create(1, 0, 0);
-	vcam->up = ft_vec_create(0, 1, 0);
-	vcam->dir = ft_vec_create(0, 0, 1);
-	rotate_cam(vcam, cam->rot_x, cam->rot_y, cam->rot_z);
+	if (vcam == NULL && cam != NULL)
+	{
+		if ((!(vcam = (t_vcam*)malloc(sizeof(t_vcam)))))
+			ft_ferror(ERR_MALLOC);
+		vcam->orig = ft_vec_create(cam->x0, cam->y0, cam->z0);
+		vcam->right = ft_vec_create(1, 0, 0);
+		vcam->up = ft_vec_create(0, 1, 0);
+		vcam->dir = ft_vec_create(0, 0, 1);
+		rotate_cam(vcam, cam->rot_x, cam->rot_y, cam->rot_z);
+	}
 	return (vcam);
 }

@@ -6,7 +6,7 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 23:00:35 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/17 16:29:16 by gbersac          ###   ########.fr       */
+/*   Updated: 2014/03/18 21:13:03 by gbersac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct		s_plan
 typedef struct		s_cylinder
 {
 	t_vector		*origin;
-	t_vector		*axis;
+	t_vector		*rotation;
 	double			rayon;
 	int				color;
 }					t_cylinder;

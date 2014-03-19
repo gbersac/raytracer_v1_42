@@ -75,7 +75,7 @@ camera
 cylinder
 	- name: jolie cylindre
 	- origin: 0,0,150
-	- rotation: 80,0,0
+	- rotation: 80,0,10
 	- rayon: 10
 	- color: 2629190
 

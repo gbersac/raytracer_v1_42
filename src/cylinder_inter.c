@@ -6,7 +6,7 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/18 21:40:29 by gbersac           #+#    #+#             */
-/*   Updated: 2014/03/19 19:07:35 by gbersac          ###   ########.fr       */
+/*   Updated: 2014/03/19 20:08:53 by gbersac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ double	ft_inter_cylinder(t_vector *dir_ref, t_vector *origin_ref,
 			+ pow(origin.z, 2)
 			- pow(cylinder->rayon, 2);
 	double d = ft_get_smaller_dist(a, b, c);
-	// printf("distance a %f b %f c %f result %f\n", a, b, c, d);
+	// if (d != -1)
+	// 	printf("distance a %f b %f c %f result %f\n", a, b, c, d);
 	return (d);
 }

@@ -6,7 +6,7 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:41:54 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/18 15:58:51 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/19 20:15:05 by gbersac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,23 @@ static t_plan	*ft_init_plan(void)
 		ft_ferror(ERR_MALLOC);
 	ft_bzero(plan, sizeof(t_plan));
 	return (plan);
+}
+
+static t_vector	ft_get_normal(double x_rot, double y_rot, double z_rot)
+{
+	t_vector		n;
+	t_rotate_arg	arg;
+
+	arg.a_x = x_rot;
+	arg.a_y = y_rot;
+	arg.a_z = z_rot;
+	init_rotation_trigo(&arg);
+	n.x = 0;
+	n.y = 1;
+	n.z = 0;
+	rotate_vector(&n, &arg);
+	printf("vector normal au plan %s\n", print_vector(&n));
+	return (n);
 }
 
 static void		ft_update_plan(t_prim *prim, t_token *tok1, t_token *tok2)
@@ -57,6 +74,7 @@ t_prim			*ft_parse_plan(t_list **tokens)
 	t_prim		*prim;
 	t_token		*token;
 	t_token		*token2;
+	t_plan		*p;
 
 	prim = ft_init_prim(PLAN);
 	prim->data = ft_init_plan();
@@ -72,29 +90,10 @@ t_prim			*ft_parse_plan(t_list **tokens)
 		ft_free_token(&token);
 		ft_free_token(&token2);
 	}
+	p = (t_plan*)(prim->data);
+	p->normal = ft_get_normal(p->rot_x, p->rot_y, p->rot_z);
+	printf("vector normal plan %s\n", print_vector(&p->normal));
 	return (prim);
-}
-
-static t_vector	ft_get_normal(double x_rot, double y_rot, double z_rot)
-{
-	static t_vector		n;
-	static int			is_first = 0;
-	static t_rotate_arg	arg;
-
-	if (!is_first)
-	{
-		arg.a_x = x_rot;
-		arg.a_y = y_rot;
-		arg.a_z = z_rot;
-		init_rotation_trigo(&arg);
-		n.x = 0;
-		n.y = 1;
-		n.z = 0;
-		rotate_vector(&n, &arg);
-		printf("vector normal au plan %s\n", print_vector(&n));
-		is_first = 1;
-	}
-	return (n);
 }
 
 double			ft_inter_plan(t_vector *r, t_vector *c, void *data)
@@ -106,10 +105,11 @@ double			ft_inter_plan(t_vector *r, t_vector *c, void *data)
 	double		b;
 
 	p = (t_plan*)data;
-
-	n = ft_get_normal(p->rot_x, p->rot_y, p->rot_z);
+	n = p->normal;
 	d = -(n.x * p->x0 + n.y * p->y0 + n.z * p->z0);
 	a = n.x * (c->x - p->x0) + n.y * (c->y - p->y0) + n.z * (c->z - p->z0) + d;
 	b = n.x * r->x + n.y * r->y + n.z * r->z;
+
+	// printf("vector normal plan %s\n", print_vector(&p->normal));
 	return (-(a / b));
 }

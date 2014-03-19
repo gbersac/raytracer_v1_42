@@ -6,7 +6,7 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 23:00:35 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/18 21:13:03 by gbersac          ###   ########.fr       */
+/*   Updated: 2014/03/19 20:02:50 by gbersac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct		s_plan
 	double			rot_y;
 	double			rot_z;
 	int				color;
+	t_vector		normal;
 }					t_plan;
 
 typedef struct		s_cylinder

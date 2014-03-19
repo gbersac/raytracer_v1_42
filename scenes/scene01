@@ -52,16 +52,16 @@ sphere
 # 	- rayon: 20
 # 	- color: 16777215
 
-#plan
-#	- name: plan plat
-#	- origin: 0,-50,0
-#	- color: 5253160
+plan
+	- name: plan plat
+	- origin: 0,-50,0
+	- color: 16777215
 
-# plan
-# 	- name: plan plat aussi
-# 	- origin: 0,0,0
-# 	- color: 5253160
-# 	- rotation: 3,0,0
+plan
+	- name: plan plat aussi
+	- origin: 0,0,0
+	- color: 5253160
+	- rotation: 0,0,60
 
 light
 	- name: main light
@@ -75,7 +75,7 @@ camera
 cylinder
 	- name: jolie cylindre
 	- origin: 0,0,150
-	- rotation: 80,0,10
+	- rotation: 0,0,10
 	- rayon: 10
 	- color: 2629190
 

@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 22:51:09 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/14 23:00:05 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/19 17:27:17 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ double			ft_inter_cone(t_vector *r, t_vector *c, void *data)
 	t_cone		*p;
 
 	p = (t_cone*)data;
-	p->angle = 1/tan(p->angle / 180.0 * PI);
 	x = pow(r->x, 2) + pow(r->z, 2) - pow(r->y, 2);
 	y = 2 * ((r->x * (c->x - p->x0))
 		+ (r->z * (c->z - p->z0))

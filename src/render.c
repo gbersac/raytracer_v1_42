@@ -6,12 +6,14 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:41:44 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/14 21:28:48 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/19 18:55:13 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RTv1.h"
 #include "debug.h"
+//
+#include <stdio.h>
 
 static void		ft_raytracing(t_win *win)
 {
@@ -19,6 +21,7 @@ static void		ft_raytracing(t_win *win)
 	int			y;
 	int			color;
 	t_vector	ray;
+	t_vector	n_ray;
 
 	ray = ft_get_start_ray(win);
 	y = 0;
@@ -27,12 +30,13 @@ static void		ft_raytracing(t_win *win)
 		x = 0;
 		while (x < win->width)
 		{
-			color = ft_get_color(win, &ray, win->vcam->orig);
-			ft_put_pix_to_img(win, x, y, color);
 			ray = ft_vec_add(ray, ft_vec_product(*win->vcam->right, X_RATIO));
+			n_ray = ft_vec_normalize(ray);
+			color = ft_get_color(win, &n_ray, win->vcam->orig);
+			ft_put_pix_to_img(win, x, y, color);
 			++x;
 		}
-		ray = ft_vec_sub(ray, ft_vec_product(*win->vcam->right, (x * X_RATIO)));
+		ray = ft_vec_sub(ray, ft_vec_product(*win->vcam->right, x * X_RATIO));
 		ray = ft_vec_sub(ray, ft_vec_product(*win->vcam->up, Y_RATIO));
 		++y;
 	}

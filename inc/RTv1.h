@@ -6,7 +6,7 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:42:15 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/17 16:22:39 by gbersac          ###   ########.fr       */
+/*   Updated: 2014/03/19 18:41:20 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@
 # define WIN_HEIGHT			1200
 # define KEY_ESC			65307
 # define COLOR_BACKGROUND	0x000000
-# define VP_DIST			1
+# define VP_DIST			1.0
 # define VP_HEIGHT			0.35
-# define VP_WIDTH			0.47
+# define VP_WIDTH			0.5
 # define X_RATIO			VP_WIDTH / (double)WIN_WIDTH
 # define Y_RATIO			VP_HEIGHT / (double)WIN_HEIGHT
 # define PI					3.14159265359
@@ -87,7 +87,6 @@ void		rotate_cam(t_vcam *cam, double a_x, double a_y, double a_z);
 double		ft_inter_sphere(t_vector *r, t_vector *c, void *data);
 double		ft_inter_cone(t_vector *r, t_vector *c, void *data);
 double		ft_inter_plan(t_vector *r, t_vector *c, void *data);
-double		ft_inter_cylinder(t_vector *dir, t_vector *origin,
-								void *data);
+double		ft_inter_cylinder(t_vector *dir, t_vector *origin, void *data);
 
 #endif /* !RTV1_H */

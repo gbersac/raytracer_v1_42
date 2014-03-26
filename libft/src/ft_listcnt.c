@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/13 14:18:43 by rfrey             #+#    #+#             */
-/*   Updated: 2013/12/13 14:20:40 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/26 18:03:33 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ int			ft_listcnt(t_list *list)
 		cnt++;
 		list = list->next;
 	}
-		return (cnt);
+	return (cnt);
 }

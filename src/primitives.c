@@ -6,11 +6,11 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/14 16:27:17 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/14 23:08:42 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/26 19:59:34 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RTv1.h"
+#include "rtv1.h"
 
 double	ft_get_smaller_dist(double x, double y, double z)
 {

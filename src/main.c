@@ -6,11 +6,11 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:41:14 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/12 21:44:05 by gbersac          ###   ########.fr       */
+/*   Updated: 2014/03/26 19:58:56 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RTv1.h"
+#include "rtv1.h"
 #include "debug.h"
 #include "load_file.h"
 
@@ -23,7 +23,6 @@ int			main(int argc, char **argv)
 	else
 	{
 		scene = ft_load_scene(argv[1]);
-		ft_print_scene_infos(scene);
 		ft_render_scene(scene);
 	}
 	return (0);

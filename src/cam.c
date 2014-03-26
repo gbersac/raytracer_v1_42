@@ -6,11 +6,11 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:40:37 by rfrey             #+#    #+#             */
-/*   Updated: 2014/02/12 20:40:41 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/26 20:00:44 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RTv1.h"
+#include "rtv1.h"
 #include "load_file.h"
 
 static void		ft_update_cam(t_prim *prim, t_token *tok1, t_token *tok2)

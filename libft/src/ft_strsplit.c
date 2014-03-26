@@ -6,35 +6,12 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/20 23:48:30 by rfrey             #+#    #+#             */
-/*   Updated: 2013/12/21 19:18:30 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/26 18:04:27 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
-
-static int		ft_count_word(char const *s, char c);
-static char		**ft_put_word(char const *s, char c, int w, char **res);
-
-char			**ft_strsplit(char const *s, char c)
-{
-	char	**res;
-	int		w;
-
-	res = NULL;
-	if (s)
-	{
-		w = ft_count_word(s, c);
-		if ((res = (char **)malloc(sizeof (char *) * (w + 1))))
-		{
-			if (ft_put_word(s, c, w, res))
-				res[w] = NULL;
-			else
-				return (NULL);
-		}
-	}
-	return (res);
-}
 
 static int		ft_count_word(char const *s, char c)
 {
@@ -72,6 +49,26 @@ static char		**ft_put_word(char const *s, char c, int w, char **res)
 		if ((!(res[i++] = ft_strsub(s, pos, len))))
 			return (NULL);
 		pos += len;
+	}
+	return (res);
+}
+
+char			**ft_strsplit(char const *s, char c)
+{
+	char	**res;
+	int		w;
+
+	res = NULL;
+	if (s)
+	{
+		w = ft_count_word(s, c);
+		if ((res = (char **)malloc(sizeof(char *) * (w + 1))))
+		{
+			if (ft_put_word(s, c, w, res))
+				res[w] = NULL;
+			else
+				return (NULL);
+		}
 	}
 	return (res);
 }

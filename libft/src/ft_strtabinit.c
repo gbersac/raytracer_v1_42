@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_btdatacmp.c                                     :+:      :+:    :+:   */
+/*   ft_strtabinit.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/11/28 16:03:35 by rfrey             #+#    #+#             */
-/*   Updated: 2013/12/23 14:22:42 by rfrey            ###   ########.fr       */
+/*   Created: 2014/03/11 21:37:07 by rfrey             #+#    #+#             */
+/*   Updated: 2014/03/11 21:53:28 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "btree.h"
+#include <stdlib.h>
 
-int		ft_btdatacmp(void *data1, void *data2, int (*f[SCN])(void *, void *))
+char		**ft_strtabinit(unsigned int n)
 {
-	int		i;
-	int		ret;
+	char			**tab;
+	unsigned int	i;
 
-	if (!(data1 && data2 && f))
-		return (0);
+	if ((!(tab = (char**)malloc(sizeof(char*) * (n + 1)))))
+		return (NULL);
 	i = 0;
-	while (i < SCN)
+	while (i < n + 1)
 	{
-		if (!f[i])
-			return (0);
-		if ((ret = f[i](data1, data2)) != 0)
-			return (ret);
-		i++;
+		tab[i] = NULL;
+		++i;
 	}
-	return (0);
+	return (tab);
 }

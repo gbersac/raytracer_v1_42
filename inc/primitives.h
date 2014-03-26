@@ -6,7 +6,7 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 23:00:35 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/19 20:02:50 by gbersac          ###   ########.fr       */
+/*   Updated: 2014/03/26 19:52:54 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,4 @@ typedef struct		s_primitive
 	void			*data;
 }					t_prim;
 
-#endif /* !PRIMITIVES_H */
+#endif

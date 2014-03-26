@@ -6,14 +6,12 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/12 18:15:59 by gbersac           #+#    #+#             */
-/*   Updated: 2014/03/19 19:19:52 by gbersac          ###   ########.fr       */
+/*   Updated: 2014/03/26 20:00:08 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RTv1.h"
+#include "rtv1.h"
 #include "rotation.h"
-//
-#include <stdio.h>
 
 double			convert_to_radian(double angle)
 {
@@ -40,9 +38,6 @@ void			rotate_vector(t_vector *vec, t_rotate_arg *a)
 			buf_z * (a->cosx * a->cosy);
 }
 
-/*
-** Angle are supposed to be measured in degree.
-*/
 void			init_rotation_trigo(t_rotate_arg *arg)
 {
 	arg->a_x = convert_to_radian(arg->a_x);
@@ -76,28 +71,3 @@ void			rotate_cam(t_vcam *cam, double a_x, double a_y, double a_z)
 	arg.a_z = a_z;
 	rotate_reference(&arg);
 }
-
-/*
-** void			rotate_reference(t_rotate_arg *arg)
-** {
-** 	arg->cosx = cos(arg->a_x);
-** 	arg->cosy = cos(arg->a_y);
-** 	arg->cosz = cos(arg->a_z);
-** 	arg->sinx = sin(arg->a_x);
-** 	arg->siny = sin(arg->a_y);
-** 	arg->sinz = sin(arg->a_z);
-** 	printf("@@@rotation de z %f\n", arg->a_z);
-** 	printf("avant z %s\n", print_vector(arg->v_z));
-** 	rotate_vector(arg->v_z, arg);
-** 	printf("apres z %s\n", print_vector(arg->v_z));
-** 	printf("@@@rotation de y %f\n", arg->a_y);
-** 	printf("avant y %s\n", print_vector(arg->v_y));
-** 	rotate_vector(arg->v_y, arg);
-** 	printf("apres y %s\n", print_vector(arg->v_y));
-** 	printf("@@@rotation de x %f\n", arg->a_x);
-** 	printf("avant x %s\n", print_vector(arg->v_x));
-** 	rotate_vector(arg->v_x, arg);
-** 	printf("apres x %s\n", print_vector(arg->v_x));
-** 	printf("@@@result : x %s y %s z %s\n", print_vector(arg->v_x), print_vector(arg->v_y), print_vector(arg->v_z));
-** }
-*/

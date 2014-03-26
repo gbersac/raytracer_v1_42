@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:42:29 by rfrey             #+#    #+#             */
-/*   Updated: 2014/02/13 16:35:55 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/26 19:52:39 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,4 @@
 # define ERR_MLX_IMG_INIT "Mxl image initialization error"
 # define ERR_NO_CAM "Error : No cam define"
 # define ERR_NO_LIGHT "Error : No light define"
-#endif /* !ERROR_H */
+#endif

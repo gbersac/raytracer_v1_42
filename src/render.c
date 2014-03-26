@@ -6,14 +6,12 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:41:44 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/19 19:24:14 by gbersac          ###   ########.fr       */
+/*   Updated: 2014/03/26 19:59:53 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RTv1.h"
+#include "rtv1.h"
 #include "debug.h"
-//
-#include <stdio.h>
 
 static void		ft_raytracing(t_win *win)
 {

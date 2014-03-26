@@ -6,11 +6,11 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:41:36 by rfrey             #+#    #+#             */
-/*   Updated: 2014/02/12 20:41:38 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/26 19:59:12 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RTv1.h"
+#include "rtv1.h"
 #include "load_file.h"
 
 t_prim		*ft_init_prim(int type)

@@ -6,11 +6,11 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:41:54 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/18 20:01:50 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/26 20:00:15 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RTv1.h"
+#include "rtv1.h"
 #include "load_file.h"
 
 static t_sphere	*ft_init_sphere(void)

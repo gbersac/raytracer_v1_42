@@ -6,11 +6,11 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:41:04 by rfrey             #+#    #+#             */
-/*   Updated: 2014/02/14 21:12:12 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/26 19:58:48 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RTv1.h"
+#include "rtv1.h"
 #include "load_file.h"
 
 static t_token	*ft_init_token(int type, char *value)
@@ -54,7 +54,7 @@ static void		ft_add_field_token(t_list **tokens, char *line)
 	token = ft_init_token(PRIM_NAME, str);
 	ft_listpushback(tokens, token);
 	++pos;
-	while (line[pos] && (line[pos] == ' '|| line[pos] == '\t'))
+	while (line[pos] && (line[pos] == ' ' || line[pos] == '\t'))
 		++pos;
 	pos2 = 0;
 	while (line[pos2])

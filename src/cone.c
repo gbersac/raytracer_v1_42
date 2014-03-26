@@ -6,11 +6,11 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 22:51:09 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/19 17:27:17 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/26 19:57:39 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RTv1.h"
+#include "rtv1.h"
 #include "load_file.h"
 
 static t_cone	*ft_init_cone(void)

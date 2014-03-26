@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/20 23:33:24 by rfrey             #+#    #+#             */
-/*   Updated: 2013/12/02 19:20:56 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/02/06 23:59:33 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char		*ft_strjoin(char const *s1, char const *s2)
 	if (s1 && s2)
 	{
 		size = ft_strlen(s1) + ft_strlen(s2) + 1;
-		if ((str = (char *)malloc(sizeof (char) * size)))
+		if ((str = (char *)malloc(sizeof(char) * size)))
 		{
 			i = 0;
 			while (s1[i])

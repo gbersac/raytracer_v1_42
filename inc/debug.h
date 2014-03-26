@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:42:22 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/12 18:37:29 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/26 19:52:33 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,4 @@ void	ft_print_light_infos(t_prim *light);
 void	ft_print_cam_infos(t_prim *cam);
 void	ft_put_vector(t_vector *v);
 
-#endif /* !DEBUG_H */
+#endif

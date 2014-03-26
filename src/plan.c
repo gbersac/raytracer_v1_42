@@ -6,15 +6,13 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:41:54 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/19 20:15:05 by gbersac          ###   ########.fr       */
+/*   Updated: 2014/03/26 19:59:21 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RTv1.h"
+#include "rtv1.h"
 #include "rotation.h"
 #include "load_file.h"
-//
-#include <stdio.h>
 
 static t_plan	*ft_init_plan(void)
 {
@@ -39,7 +37,6 @@ static t_vector	ft_get_normal(double x_rot, double y_rot, double z_rot)
 	n.y = 1;
 	n.z = 0;
 	rotate_vector(&n, &arg);
-	printf("vector normal au plan %s\n", print_vector(&n));
 	return (n);
 }
 
@@ -92,7 +89,6 @@ t_prim			*ft_parse_plan(t_list **tokens)
 	}
 	p = (t_plan*)(prim->data);
 	p->normal = ft_get_normal(p->rot_x, p->rot_y, p->rot_z);
-	printf("vector normal plan %s\n", print_vector(&p->normal));
 	return (prim);
 }
 
@@ -109,7 +105,5 @@ double			ft_inter_plan(t_vector *r, t_vector *c, void *data)
 	d = -(n.x * p->x0 + n.y * p->y0 + n.z * p->z0);
 	a = n.x * (c->x - p->x0) + n.y * (c->y - p->y0) + n.z * (c->z - p->z0) + d;
 	b = n.x * r->x + n.y * r->y + n.z * r->z;
-
-	// printf("vector normal plan %s\n", print_vector(&p->normal));
 	return (-(a / b));
 }

@@ -6,14 +6,14 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:42:39 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/14 17:30:55 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/26 19:55:28 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LOAD_FILE_H
 # define LOAD_FILE_H
 
-typedef t_prim *(*t_parse_prim)(t_list **);
+typedef t_prim		*(*t_parse_prim)(t_list **);
 
 typedef struct		s_parse_prim_array
 {
@@ -32,16 +32,16 @@ typedef struct		s_token
 	char			*value;
 }					t_token;
 
-t_scene		*ft_load_scene(char *filepath);
-t_scene		*ft_parse_scene(t_list **tokens);
-void		ft_set_coord(char *str, double *x, double *y, double *z);
-void		ft_free_token(t_token **token);
-t_prim		*ft_init_prim(int type);
-t_prim		*ft_parse_light(t_list **tokens);
-t_prim		*ft_parse_cam(t_list **tokens);
-t_prim		*ft_parse_sphere(t_list **tokens);
-t_prim		*ft_parse_plan(t_list **tokens);
-t_prim		*ft_parse_cone(t_list **tokens);
-t_prim		*ft_parse_cylinder(t_list **tokens);
+t_scene				*ft_load_scene(char *filepath);
+t_scene				*ft_parse_scene(t_list **tokens);
+void				ft_set_coord(char *str, double *x, double *y, double *z);
+void				ft_free_token(t_token **token);
+t_prim				*ft_init_prim(int type);
+t_prim				*ft_parse_light(t_list **tokens);
+t_prim				*ft_parse_cam(t_list **tokens);
+t_prim				*ft_parse_sphere(t_list **tokens);
+t_prim				*ft_parse_plan(t_list **tokens);
+t_prim				*ft_parse_cone(t_list **tokens);
+t_prim				*ft_parse_cylinder(t_list **tokens);
 
-#endif /* !LOAD_FILE_H */
+#endif

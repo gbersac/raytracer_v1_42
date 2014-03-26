@@ -24,59 +24,33 @@
 
 cone
 	- name: cone conique
-	- origin: 0,0,100
-	- angle: 156
+	- origin: 0,0,0
+	- angle: 45
 	- color: 46546
 
 sphere
 	- name: sphere vert
-	- origin: 50,0,300
+	- origin: 0,0,0
 	- rayon: 20
 	- color: 65280
 
-sphere
-	- name: sphere bleu
-	- origin: -50,0,300
-	- rayon: 20
-	- color: 255
-
-sphere
-	- name: sphere rouge
-	- origin: 50,0,400
-	- rayon: 20
-	- color: 16711680
-
-# sphere
-# 	- name: sphere blanche
-# 	- origin: -50,0,400
-# 	- rayon: 20
-# 	- color: 16777215
-
 plan
 	- name: plan plat
-	- origin: 0,-50,0
-	- color: 16777215
-
-plan
-	- name: plan plat aussi
 	- origin: 0,0,0
-	- color: 5253160
-	- rotation: 0,0,60
+	- color: 677715
 
 light
 	- name: main light
-	- origin: 2,3,4
-	- rotation: 45,45,45
+	- origin: 0,0,0
+	- rotation: 0,0,0
 
 camera
-	- origin: 0,41,-500
+	- origin: 0,40,-500
 	- rotation: 0,0,0
 
 cylinder
 	- name: jolie cylindre
-	- origin: 0,0,150
-	- rotation: 0,0,10
+	- origin: -50,0,-30
+	- rotation: 0,0,0
 	- rayon: 10
 	- color: 2629190
-
-# achtung ! segfault qd il manke double point apres name (et les autres ?)

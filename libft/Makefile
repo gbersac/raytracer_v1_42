@@ -6,7 +6,7 @@
 #    By: rfrey <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/09/30 11:03:46 by rfrey             #+#    #+#              #
-#    Updated: 2014/01/25 20:19:35 by rfrey            ###   ########.fr        #
+#    Updated: 2014/03/26 18:07:41 by rfrey            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,12 +26,12 @@ ft_striteri.c ft_strmap.c ft_strmapi.c ft_strequ.c ft_strnequ.c ft_strsub.c \
 ft_strjoin.c ft_strtrim.c ft_strsplit.c ft_itoa.c ft_putchar.c ft_putstr.c \
 ft_putendl.c ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
 ft_putnbr_fd.c ft_listclear.c ft_listcreate.c ft_listpop.c ft_listpushback.c \
-ft_listcnt.c ft_listpushfront.c ft_btaddnode.c ft_btcountnode.c \
-ft_btinitnode.c ft_btdatacmp.c ft_get_next_line.c ft_btclear.c \
+ft_listcnt.c ft_listpushfront.c ft_get_next_line.c \
 ft_listgetn.c ft_strtabcpy.c ft_strtabfree.c ft_strtabsize.c ft_strtabput.c \
-ft_strtabadd.c ft_strtabrm.c ft_listpoplast.c ft_listpop_n.c\
+ft_strtabadd.c ft_strtabrm.c ft_listpoplast.c ft_listpop_n.c ft_strtabinit.c \
 ft_printf.c pf_convert.c pf_get_format.c pf_init.c pf_output.c \
 pf_parse.c pf_tools.c pf_type_format.c ft_strdelchar.c
+
 OBJ = $(patsubst %.c, $(PATH_OBJ)/%.o, $(SRC))
 
 all : $(NAME)

@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/10 16:25:11 by rfrey             #+#    #+#             */
-/*   Updated: 2013/12/27 18:23:33 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/26 17:59:03 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,4 @@ char		*ft_addoctalprefix(char **str);
 char		*ft_addhexaprefix(char **str);
 void		ft_convert(va_list ap, int *cnt, int *format);
 
-#endif /* !FT_PRINTF_H */
+#endif

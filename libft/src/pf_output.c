@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/12 13:41:11 by rfrey             #+#    #+#             */
-/*   Updated: 2013/12/12 17:15:32 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/26 18:05:43 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int			ft_putsign(int *f)
 
 void		ft_putsignedstr(char *str, int *format)
 {
-		if (!format[ATTR_ZERO])
-			ft_putsign(format);
-		ft_putstr(str);
+	if (!format[ATTR_ZERO])
+		ft_putsign(format);
+	ft_putstr(str);
 }

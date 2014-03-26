@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 11:16:00 by rfrey             #+#    #+#             */
-/*   Updated: 2014/01/18 22:39:02 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/26 18:00:38 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char const *s, int fd);
 void		ft_putendl_fd(char const *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
+char		**ft_strtabinit(unsigned int n);
 char		**ft_strtabcpy(char **tab);
 int			ft_strtabsize(char **tab);
 void		ft_strtabfree(char ***tab);
@@ -76,4 +77,4 @@ char		**ft_strtabadd(char ***tab, char *add);
 char		**ft_strtabrm(char ***tab, int index);
 char		*ft_strdelchar(char *str, char *to_remove);
 
-#endif /* !LIBFT_H */
+#endif

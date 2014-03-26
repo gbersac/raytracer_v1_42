@@ -6,25 +6,25 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 20:41:30 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/14 16:54:14 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/26 19:59:06 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RTv1.h"
+#include "rtv1.h"
 #include "load_file.h"
 
 static t_parse_prim	ft_get_parse_prim_func(t_prim_type type)
 {
-	unsigned int			i;
-	t_parse_prim_array		tab[] = {
-									{CAM, ft_parse_cam},
-									{LIGHT, ft_parse_light},
-									{SPHERE, ft_parse_sphere},
-									{PLAN, ft_parse_plan},
-									{CYLINDER, ft_parse_cylinder},
-									{CONE, ft_parse_cone},
-									};
+	unsigned int				i;
+	static t_parse_prim_array	tab[] = {
 
+	{CAM, ft_parse_cam},
+	{LIGHT, ft_parse_light},
+	{SPHERE, ft_parse_sphere},
+	{PLAN, ft_parse_plan},
+	{CYLINDER, ft_parse_cylinder},
+	{CONE, ft_parse_cone},
+	};
 	i = 0;
 	while (i < sizeof(tab) / sizeof(t_parse_prim_array))
 	{

@@ -6,13 +6,13 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 23:47:26 by rfrey             #+#    #+#             */
-/*   Updated: 2014/03/19 18:59:53 by gbersac          ###   ########.fr       */
+/*   Updated: 2014/03/26 19:46:18 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 #include <stdlib.h>
-#include <stdio.h>
+
 double		ft_vec_dot_product(t_vector v1, t_vector v2)
 {
 	double	res;
@@ -43,20 +43,13 @@ t_vector	ft_vec_product(t_vector v1, double n)
 	return (res);
 }
 
-char			*print_vector(t_vector *vect)
-{
-	char *str = (char*) malloc(sizeof(char) * 100);
-	sprintf(str, "{x:%f y:%f z:%f}", vect->x, vect->y, vect->z);
-	return (str);
-}
-
 t_vector	*ft_vec_cpy(t_vector *vec)
 {
 	t_vector	*to_return;
 
 	if (vec == NULL)
 		return (NULL);
-	to_return = (t_vector*) malloc(sizeof(t_vector));
+	to_return = (t_vector*)malloc(sizeof(t_vector));
 	to_return->x = vec->x;
 	to_return->y = vec->y;
 	to_return->z = vec->z;

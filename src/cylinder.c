@@ -6,21 +6,21 @@
 /*   By: gbersac <gbersac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 18:04:01 by gbersac           #+#    #+#             */
-/*   Updated: 2014/03/18 23:26:30 by gbersac          ###   ########.fr       */
+/*   Updated: 2014/03/26 19:57:48 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RTv1.h"
+#include "rtv1.h"
 #include "load_file.h"
 
-static t_cylinder	*ft_init_cylinder(void)
+t_cylinder		*ft_init_cylinder(void)
 {
 	t_cylinder	*new;
 
 	if ((new = (t_cylinder*)malloc(sizeof(t_cylinder))) == NULL)
 		return (NULL);
-	new->origin = (t_vector*) malloc(sizeof(t_vector));;
-	new->rotation = (t_vector*) malloc(sizeof(t_vector));;
+	new->origin = (t_vector*)malloc(sizeof(t_vector));
+	new->rotation = (t_vector*)malloc(sizeof(t_vector));
 	new->rayon = 0;
 	return (new);
 }

@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/20 23:53:55 by rfrey             #+#    #+#             */
-/*   Updated: 2013/11/26 23:32:53 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/02/06 23:59:57 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char		*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (s == NULL || f == NULL)
 		return (NULL);
 	i = 0;
-	if ((!(ret = (char *)malloc(sizeof (char) * (ft_strlen(s) + 1)))))
+	if ((!(ret = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1)))))
 		return (NULL);
 	while (s[i] != '\0')
 	{

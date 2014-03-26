@@ -6,11 +6,11 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/12 21:34:13 by rfrey             #+#    #+#             */
-/*   Updated: 2014/02/14 22:30:53 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/26 19:58:15 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RTv1.h"
+#include "rtv1.h"
 
 int		ft_key_handle(int key, t_win *win)
 {

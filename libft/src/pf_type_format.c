@@ -6,7 +6,7 @@
 /*   By: rfrey <rfrey@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/11 21:46:53 by rfrey             #+#    #+#             */
-/*   Updated: 2014/01/13 01:12:18 by rfrey            ###   ########.fr       */
+/*   Updated: 2014/03/26 18:05:56 by rfrey            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,3 @@ void		ft_fdouble(double d, int *cnt, int *format)
 	ft_putstr("<double>");
 	(*cnt)++;
 }
-

@@ -6,14 +6,14 @@
 #    By: rfrey <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/09/30 11:03:46 by rfrey             #+#    #+#              #
-#    Updated: 2014/03/26 18:07:41 by rfrey            ###   ########.fr        #
+#    Updated: 2016/01/08 17:01:27 by gbersac          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -g
 NAME = libft.a
-PATH_INC = includes
+PATH_INC = inc
 PATH_OBJ = obj
 PATH_SRC = src
 SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \

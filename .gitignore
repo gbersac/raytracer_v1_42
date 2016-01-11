@@ -1,3 +1,8 @@
+rt
+blop.raw
+ref.raw
+a.out
+
 # Object files
 *.o
 *.ko

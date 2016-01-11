@@ -1,3 +1,7 @@
+// origin : http://www.massal.net/article/raytrace/page1.html
+
+#include <fcntl.h>
+#include <stdio.h>
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -12,47 +16,69 @@ bool init(char* inputName, scene &my_scene)
 {
 	int nbMat, nbSphere, nbLight;
 	int i;
-	ifstream sceneFile(inputName);
-	if (!sceneFile)
+
+	FILE *socket = fopen(inputName, "r+");
+	if (!socket)
 		return  false;
-	sceneFile >> my_scene.sizex >> my_scene.sizey;
-	sceneFile >> nbMat >> nbSphere >> nbLight;
+	fscanf(socket, "%d %d\n", &my_scene.sizex, &my_scene.sizey);
+	printf("%d %d\n", my_scene.sizex, my_scene.sizey);
+	fscanf(socket, "%d %d %d\n", &nbMat, &nbSphere, &nbLight);
+	printf("%d %d %d\n", nbMat, nbSphere, nbLight);
 	my_scene.matTab.resize(nbMat);
 	my_scene.sphTab.resize(nbSphere);
 	my_scene.lgtTab.resize(nbLight);
+	printf("material:\n");
 	for (i=0; i < nbMat; i++)
-		sceneFile >> my_scene.matTab[i];
+	{
+		fscanf(socket, "%lf %lf %lf %lf\n", &my_scene.matTab[i].red, &my_scene.matTab[i].green, &my_scene.matTab[i].blue, &my_scene.matTab[i].reflection);
+		printf("%lf %lf %lf %lf\n", my_scene.matTab[i].red, my_scene.matTab[i].green, my_scene.matTab[i].blue, my_scene.matTab[i].reflection);
+	}
+	printf("sphere:\n");
 	for (i=0; i < nbSphere; i++)
-		sceneFile >> my_scene.sphTab[i];
+	{
+		fscanf(socket, "%lf %lf %lf %lf %d\n", &my_scene.sphTab[i].pos.x, &my_scene.sphTab[i].pos.y, &my_scene.sphTab[i].pos.z,
+				&my_scene.sphTab[i].size, &my_scene.sphTab[i].material);
+		printf("%lf %lf %lf %lf %d\n", my_scene.sphTab[i].pos.x, my_scene.sphTab[i].pos.y, my_scene.sphTab[i].pos.z,
+				my_scene.sphTab[i].size, my_scene.sphTab[i].material);
+	}
+	printf("lights:\n");
 	for (i=0; i < nbLight; i++)
-		sceneFile >> my_scene.lgtTab[i];
+	{
+		fscanf(socket, "%lf %lf %lf %lf %lf %lf\n", &my_scene.lgtTab[i].pos.x, &my_scene.lgtTab[i].pos.y, &my_scene.lgtTab[i].pos.z, &my_scene.lgtTab[i].red, &my_scene.lgtTab[i].green, &my_scene.lgtTab[i].blue);
+		printf("%lf %lf %lf %lf %lf %lf\n", my_scene.lgtTab[i].pos.x, my_scene.lgtTab[i].pos.y, my_scene.lgtTab[i].pos.z, my_scene.lgtTab[i].red, my_scene.lgtTab[i].green, my_scene.lgtTab[i].blue);
+		// sceneFile >> my_scene.lgtTab[i];
+	}
 	return true;
 }
 
-void	header_file(ofstream *imageFile, scene &my_scene)
+void	header_file(int imageFile, scene &my_scene)
 {
-	// Ajout du header TGA
-	imageFile->put(0).put(0);
-	imageFile->put(2);        /* RGB non compresse */
-
-	imageFile->put(0).put(0);
-	imageFile->put(0).put(0);
-	imageFile->put(0);
-
-	imageFile->put(0).put(0); /* origine X */
-	imageFile->put(0).put(0); /* origine Y */
-
-	imageFile->put((my_scene.sizex & 0x00FF)).put((my_scene.sizex & 0xFF00) / 256);
-	imageFile->put((my_scene.sizey & 0x00FF)).put((my_scene.sizey & 0xFF00) / 256);
-	imageFile->put(24);       /* 24 bit bitmap */
-	imageFile->put(0);
-	// fin du header TGA
+	char buf[1024];
+	buf[0] = '\0';
+	buf[1] = '\0';
+	buf[2] = 2;
+	buf[3] = '\0';
+	buf[4] = '\0';
+	buf[5] = '\0';
+	buf[6] = '\0';
+	buf[7] = '\0';
+	buf[8] = '\0';
+	buf[9] = '\0';
+	buf[10] = '\0';
+	buf[11] = '\0';
+	buf[12] = (my_scene.sizex & 0x00FF);
+	buf[13] = (my_scene.sizex & 0xFF00) / 256;
+	buf[14] = (my_scene.sizey & 0x00FF);
+	buf[15] = (my_scene.sizey & 0xFF00) / 256;
+	buf[16] = 24;
+	buf[17] = 0;
+	write(imageFile, buf, 18);
 }
 
 bool	hitSphere(const t_ray *r, const sphere &s, float &t)
 {
 // intersection rayon/sphere
-	t_vector dist = sub_pt_pt(&s.pos, &r->start);
+	t_vector dist = sub_vec_vec(&s.pos, &r->start);
 	float B = mul_vec_vec(&r->dir, &dist);
 	float D = B*B - mul_vec_vec(&dist, &dist) + s.size * s.size;
 	if (D < 0.0f)
@@ -97,7 +123,7 @@ t_vector	vec_normal(t_point *vec, t_point *pt)
 	t_vector	n;
 	double		temp;
 
-	n = sub_pt_pt(vec, pt);
+	n = sub_vec_vec(vec, pt);
 	temp = mul_vec_vec(&n, &n);
 	if (temp == 0.0)
 	{
@@ -119,7 +145,7 @@ void		light(scene *my_scene, t_vector *n, t_point *newStart, double coef, materi
 	while (j < my_scene->lgtTab.size())
 	{
 		t_light current = my_scene->lgtTab[j];
-		t_vector dist = sub_pt_pt(&current.pos, newStart);
+		t_vector dist = sub_vec_vec(&current.pos, newStart);
 		if (mul_vec_vec(n, &dist) <= 0.0)
 		{
 			++j;
@@ -153,12 +179,19 @@ void		light(scene *my_scene, t_vector *n, t_point *newStart, double coef, materi
 	}
 }
 
+void	print_color(int socket, float color)
+{
+	float m = min(color * 255.0f, 255.0f);
+	char c = (char) m;
+	write(socket, &c, 1);
+}
+
 bool	draw(char* outputName, scene &my_scene)
 {
-	ofstream imageFile(outputName,ios_base::binary);
-	if (!imageFile)
+	int imageFile = open(outputName, /*O_APPEND*/ O_WRONLY | O_CREAT, S_IRUSR | S_IRGRP | S_IROTH);
+	if (imageFile <= 0)
 		return false;
-	header_file(&imageFile, my_scene);
+	header_file(imageFile, my_scene);
 
 	// balayage
 	int			x;
@@ -188,7 +221,7 @@ bool	draw(char* outputName, scene &my_scene)
 					break;
 
 				t_vector t_mul_dir = mul_scalar_vec(t, &view_ray.dir);
-				t_point newStart = add_pt_vec(&view_ray.start, &t_mul_dir);
+				t_point newStart = add_vec(&view_ray.start, &t_mul_dir);
 				// la normale au point d'intersection
 				t_vector n = vec_normal(&newStart, &my_scene.sphTab[currentSphere].pos);
 
@@ -206,10 +239,9 @@ bool	draw(char* outputName, scene &my_scene)
 
 				level++;
 			}
-			imageFile
-					.put((unsigned char)min(blue*255.0f,255.0f))
-					.put((unsigned char)min(green*255.0f, 255.0f))
-					.put((unsigned char)min(red*255.0f, 255.0f));
+			print_color(imageFile, blue);
+			print_color(imageFile, green);
+			print_color(imageFile, red);
 			++x;
 		}
 		++y;

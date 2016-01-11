@@ -1,15 +1,3 @@
-typedef struct	s_point
-{
-	double		x;
-	double		y;
-	double		z;
-}				t_point;
-
-istream & operator >> ( istream &inputFile,  t_point& p )
-{
-	return inputFile >> p.x >> p.y >> p.z ;
-}
-
 typedef struct	s_vector
 {
 	double		x;
@@ -17,14 +5,16 @@ typedef struct	s_vector
 	double		z;
 }				t_vector;
 
+typedef t_vector	t_point;
+
 istream & operator >> ( istream &inputFile,  t_vector& v )
 {
 	return inputFile >> v.x >> v.y >> v.z ;
 }
 
-t_point	add_pt_vec(const t_point *p, const t_vector *v)
+t_point	add_vec(const t_vector *p, const t_vector *v)
 {
-	t_point p2={p->x + v->x, p->y + v->y, p->z + v->z };
+	t_vector p2={p->x + v->x, p->y + v->y, p->z + v->z };
 	return (p2);
 }
 

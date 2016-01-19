@@ -12,21 +12,25 @@
 
 #ifndef RTV1_H
 # define RTV1_H
+
 # include <stdlib.h>
+# include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>
 # include <math.h>
 # include <mlx.h>
+
 # include "libft.h"
 # include "ft_get_next_line.h"
 # include "list.h"
 # include "error.h"
 # include "vector.h"
 # include "primitives.h"
+
 # define WIN_TITLE			"RTv1"
 # define WIN_WIDTH			1600
 # define WIN_HEIGHT			1200
-# define KEY_ESC			65307
+# define KEY_ESC			53
 # define COLOR_BACKGROUND	0x000000
 # define VP_DIST			1.0
 # define VP_HEIGHT			0.35
